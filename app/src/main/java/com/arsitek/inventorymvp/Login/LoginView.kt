@@ -1,10 +1,13 @@
 package com.arsitek.inventorymvp.Login
 
-import com.arsitek.inventorymvp.Model.ResponseLogin
-import com.arsitek.inventorymvp.network.RepositoryCallback
+import com.arsitek.inventorymvp.Model.DataItem
 
-interface LoginView : RepositoryCallback<ResponseLogin> {
+
+
+interface LoginView{
     fun onShowLoading()
     fun onHideLoading()
+    fun onDataloaded(results : List<DataItem?>)
+    fun onDataeror (message : Throwable)
 
 }

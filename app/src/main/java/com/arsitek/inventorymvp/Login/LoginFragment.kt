@@ -6,14 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.arsitek.inventorymvp.Activity.HomeActivity
-import com.arsitek.inventorymvp.Model.ResponseLogin
+import com.arsitek.inventorymvp.Model.DataItem
 import com.arsitek.inventorymvp.R
-import com.arsitek.inventorymvp.network.RepositoryCallback
-import com.arsitek.inventorymvp.network.RetrofitRepository
+import com.arsitek.inventorymvp.ui.HomeActivity
+import com.arsitek.inventorymvp.util.SharedPrefs
 import com.example.myinventory.util.Helper
+import com.pixplicity.easyprefs.library.Prefs
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_auth.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -26,10 +28,12 @@ private const val ARG_PARAM2 = "param2"
  * Use the [AuthFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class AuthFragment : Fragment(), RepositoryCallback<ResponseLogin> {
+class LoginFragment : Fragment(), LoginView {
     // TODO: Rename and change types of parameters
-    private val mPresenter by lazy { LoginPresenter(this, RetrofitRepository(requireContext())) }
-    lateinit var pb : ProgressBar
+//    private val mPresenter by lazy { LoginPresenter(this, RetrofitRepository(requireContext())) }
+    lateinit var pb: ProgressBar
+    lateinit var tv: TextView
+    private val TAG = "Fragment"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,50 +42,61 @@ class AuthFragment : Fragment(), RepositoryCallback<ResponseLogin> {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_auth, container, false)
         pb = view.findViewById(R.id.pb_login)
+        tv = view.findViewById(R.id.tv_signup)
+        super.onActivityCreated(savedInstanceState)
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val presenter = LoginPresenter(this)
         var uname = et_username.text
-        var pass = et_pw.text
+        var pass =et_pw.text
+
+        if (Prefs.getString(SharedPrefs.idUser,"") != null){
+            Helper().moveActivity(context, HomeActivity::class.java)
+            Log.d(TAG,"id "+Prefs.getString(SharedPrefs.idUser,""))
+        }else{
+            Log.d(TAG,"null")
+        }
+
         btn_login.setOnClickListener {
-            pb.visibility = View.VISIBLE
-            Toast.makeText(context, uname, Toast.LENGTH_SHORT).show()
-            mPresenter.login(uname.toString(), pass.toString())
+            presenter.login(uname.toString(),pass.toString())
         }
     }
 
-//    override fun onShowLoading() {
-//        activity.let {
-//            pb_login?.visibility = View.VISIBLE
-//        }
-//
-////        pb.visibility =View.VISIBLE
-//        Log.d("authf", "onShow")
-//    }
-//
-//    override fun onHideLoading() {
-//        activity?.pb_login?.visibility = View.GONE
-//        pb_login?.visibility = View.GONE
-//        pb.visibility = View.GONE
-//        Log.d("authf", "onHideloading")
-//    }
+    override fun onShowLoading() {
+        pb.visibility = View.VISIBLE
+        Log.d(TAG, "show")
+    }
 
-    override fun onDataLoaded(data: List<ResponseLogin>?) {
-        Log.d("authf", "onDa"+data?.get(0)?.status.toString())
+    override fun onHideLoading() {
         pb.visibility = View.GONE
-        activity.let {
-            Log.d("authf", "onDa"+data?.get(0)?.status.toString())
-        }
+        Log.d(TAG, "hide")
     }
 
-    override fun onDataError() {
-        activity.let {
-            Helper().debuger("data eror")
+    override fun onDataloaded(results: List<DataItem?>) {
+        Log.d(TAG, "data")
+        if (results.isNotEmpty()) {
+            Helper().moveActivity(context, HomeActivity::class.java)
+            Prefs.clear()
+            Log.d(TAG, "data "+results.get(0)?.name)
+            Prefs.putString(SharedPrefs.idUser,results.get(0)?.idUser)
+            Prefs.putString(SharedPrefs.name,results.get(0)?.name)
+            Prefs.putString(SharedPrefs.level,results.get(0)?.level)
+            Prefs.putString(SharedPrefs.username,results.get(0)?.username)
+            Toasty.success(requireContext(), "Sukses", Toast.LENGTH_SHORT).show()
+        } else {
+            Toasty.error(requireContext(), "user password salah", Toast.LENGTH_SHORT).show()
         }
-        pb.visibility = View.GONE
-        Toast.makeText(context, "404", Toast.LENGTH_SHORT).show()
+
     }
+
+    override fun onDataeror(message: Throwable) {
+        Log.d(TAG, "dateror")
+        Toasty.error(requireContext(), message.message.toString(), Toast.LENGTH_SHORT).show()
+    }
+
+
 
 }

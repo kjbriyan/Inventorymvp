@@ -1,6 +1,6 @@
-package com.arsitek.inventorymvp.Login
+package com.arsitek.inventorymvp.ui.ui.login
 
-import com.arsitek.inventorymvp.Model.DataItem
+import com.arsitek.inventorymvp.model.DataItem
 
 
 

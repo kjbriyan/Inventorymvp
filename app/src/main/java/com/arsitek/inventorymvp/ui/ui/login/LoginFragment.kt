@@ -1,4 +1,4 @@
-package com.arsitek.inventorymvp.Login
+package com.arsitek.inventorymvp.ui.ui.login
 
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +9,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.arsitek.inventorymvp.Model.DataItem
+import com.arsitek.inventorymvp.model.DataItem
 import com.arsitek.inventorymvp.R
 import com.arsitek.inventorymvp.ui.HomeActivity
 import com.arsitek.inventorymvp.util.SharedPrefs

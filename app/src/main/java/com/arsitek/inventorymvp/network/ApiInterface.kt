@@ -1,6 +1,6 @@
 package com.example.myinventory.network
 
-import com.arsitek.inventorymvp.Model.ResponseLogin
+import com.arsitek.inventorymvp.model.ResponseLogin
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

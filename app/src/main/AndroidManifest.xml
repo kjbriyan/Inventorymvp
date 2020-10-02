@@ -17,8 +17,8 @@
             android:name=".ui.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Activity.HomeActivity" />
-        <activity android:name=".Activity.AuthActivity">
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".ui.AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

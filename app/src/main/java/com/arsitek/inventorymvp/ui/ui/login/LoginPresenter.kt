@@ -1,7 +1,7 @@
-package com.arsitek.inventorymvp.Login
+package com.arsitek.inventorymvp.ui.ui.login
 
 import android.util.Log
-import com.arsitek.inventorymvp.Model.ResponseLogin
+import com.arsitek.inventorymvp.model.ResponseLogin
 import com.example.myinventory.network.Initretrofit
 import retrofit2.Call
 import retrofit2.Callback

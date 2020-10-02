@@ -1,18 +1,13 @@
-package com.arsitek.inventorymvp.Activity
+package com.arsitek.inventorymvp.ui
 
 //import com.arsitek.inventorymvp.Login.LoginFragment
 //import com.arsitek.inventorymvp.Login.AuthFragment
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import com.arsitek.inventorymvp.Login.LoginFragment
+import com.arsitek.inventorymvp.ui.ui.login.LoginFragment
 import com.arsitek.inventorymvp.R
-import com.arsitek.inventorymvp.ui.HomeActivity
-import com.arsitek.inventorymvp.util.SharedPrefs
-import com.example.myinventory.util.Helper
-import com.pixplicity.easyprefs.library.Prefs
 
 class AuthActivity : AppCompatActivity() {
     private val TAG = "Retrofit"

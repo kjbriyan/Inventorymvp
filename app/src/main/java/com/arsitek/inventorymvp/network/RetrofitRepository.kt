@@ -2,7 +2,7 @@ package com.arsitek.inventorymvp.network
 
 import android.content.Context
 import android.util.Log
-import com.arsitek.inventorymvp.Model.ResponseLogin
+import com.arsitek.inventorymvp.model.ResponseLogin
 import com.arsitek.inventorymvp.ui.HomeActivity
 import com.example.myinventory.network.Initretrofit
 import com.example.myinventory.util.Helper

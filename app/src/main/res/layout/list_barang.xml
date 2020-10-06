@@ -5,12 +5,14 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="@color/colorAccent"
+    android:id="@+id/ln_barang"
     android:layout_margin="@dimen/_5sdp">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
         android:src="@drawable/ic_launcher_foreground"
+        android:layout_margin="@dimen/_5sdp"
         android:id="@+id/iv_barang"/>
     <LinearLayout
         android:layout_width="wrap_content"

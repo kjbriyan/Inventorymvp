@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit
 
 class Initretrofit {
     val NAMA_DOMAIN = "http://inventory.konseparsitek.com/public/"
+    val IMAGE= NAMA_DOMAIN+"img/"
 
     private val okHttpClient = OkHttpClient.Builder()
         .callTimeout(2, TimeUnit.MINUTES)

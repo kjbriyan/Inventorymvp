@@ -32,4 +32,6 @@ class Helper {
         return Base64.encodeToString(byteFormat, Base64.NO_WRAP)
     }
 
+
+
 }

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ui.borrow.BorrowFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_borrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="borrow"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/iv_borrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.802" />
+
+        <ImageView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/iv_borrow"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/ic_baseline_home_24"
+            app:layout_constraintEnd_toEndOf="@+id/tv_borrow"
+            app:layout_constraintStart_toStartOf="@+id/tv_borrow"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="182dp" />
+
+        <EditText
+            android:id="@+id/et_borrow"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textSize="@dimen/_10ssp"
+            android:hint="stock"
+            app:layout_constraintEnd_toEndOf="@+id/iv_borrow"
+            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintStart_toStartOf="@+id/iv_borrow"
+            app:layout_constraintTop_toBottomOf="@+id/iv_borrow" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/_20sdp"
+            android:id="@+id/til_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:helperTextTextColor="@color/md_red_200"
+            app:boxBackgroundColor="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorOnBackground"
+            app:layout_constraintBottom_toTopOf="@+id/til_pw"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_keterangan"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:hint="@string/keterangan"
+                android:inputType="text"
+                android:maxLines="3"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_borrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/md_red_A400"
+            android:text="Pinjam"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            />
+    </LinearLayout>
+</FrameLayout>

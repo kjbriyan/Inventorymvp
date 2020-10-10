@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arsitek.inventorymvp.R
 import com.arsitek.inventorymvp.adapter.RvAdapterBarang
 import com.arsitek.inventorymvp.model.DataItemBarang
+import com.arsitek.inventorymvp.ui.ui.additem.AddItemActivity
+import com.example.myinventory.util.Helper
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
@@ -31,6 +34,10 @@ class HomeFragment : Fragment(), HomeView {
         val presenter = HomePresenter(this)
         activity.let {
             presenter.getdata()
+        }
+
+        view.findViewById<FloatingActionButton>(R.id.btn_add).setOnClickListener {
+            Helper().moveActivity(context,AddItemActivity::class.java)
         }
 
         super.onActivityCreated(savedInstanceState)
@@ -63,6 +70,14 @@ class HomeFragment : Fragment(), HomeView {
 
     override fun onDataeror(message: Throwable) {
         Toast.makeText(activity,message.cause.toString(),Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val presenter = HomePresenter(this)
+        activity.let {
+            presenter.getdata()
+        }
     }
 
 

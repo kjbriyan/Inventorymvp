@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ui.detailtransaksi.TransaksidetailActivity">
+
+    <TextView
+        android:id="@+id/tv_status"
+        style="@style/muliBoldExtraLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status"
+        app:layout_constraintVertical_bias="0.110000014">
+
+        <TextView
+            android:id="@+id/tv_nBarang"
+            style="@style/muliBoldMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Barang" />
+
+        <ImageView
+            android:id="@+id/iv_barang"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:src="@drawable/ic_baseline_image_24" />
+
+        <TextView
+            android:id="@+id/tv_namapeminjam"
+            style="@style/muliBoldNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nama peminjam" />
+
+        <TextView
+            android:id="@+id/tv_dipinjam"
+            style="@style/muliBoldNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stock yang di pinjam" />
+
+        <LinearLayout
+            android:id="@+id/ln_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_terima"
+                style="@style/muliBoldNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="Terima"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <Button
+                android:id="@+id/btn_tolak"
+                style="@style/muliBoldNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="Tolak"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_acc"
+            style="@style/muliBoldNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Acc"
+            android:textColor="@color/colorPrimaryDark" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ProgressBar
+        android:id="@+id/pb_tdetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@xml/progres"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,6 +12,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:gravity="center"
+        android:id="@+id/linearLayout"
         android:layout_height="match_parent">
 
         <TextView
@@ -46,26 +47,13 @@
             android:layout_marginTop="24dp"
             android:textSize="@dimen/_10ssp"
             android:hint="stock"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="@+id/iv_borrow"
             app:layout_constraintHorizontal_bias="0.529"
             app:layout_constraintStart_toStartOf="@+id/iv_borrow"
             app:layout_constraintTop_toBottomOf="@+id/iv_borrow" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="@dimen/_20sdp"
-            android:id="@+id/til_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:helperTextTextColor="@color/md_red_200"
-            app:boxBackgroundColor="@color/colorPrimaryDark"
-            app:hintTextColor="@color/colorOnBackground"
-            app:layout_constraintBottom_toTopOf="@+id/til_pw"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_logo">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/et_keterangan"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
@@ -73,8 +61,6 @@
                 android:inputType="text"
                 android:maxLines="3"
                 />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_borrow"
@@ -87,4 +73,15 @@
             android:textColor="@android:color/white"
             />
     </LinearLayout>
-</FrameLayout>
+    <ProgressBar
+        android:outlineAmbientShadowColor="@color/md_white_1000"
+        android:id="@+id/pb_borrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

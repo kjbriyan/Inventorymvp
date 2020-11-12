@@ -17,8 +17,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_margin="@dimen/_20sdp"
         android:orientation="vertical">
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
@@ -33,6 +32,15 @@
             style="@style/muliBoldSmall"
             android:text="Stock Nama Barang"
             android:id="@+id/tv_stock"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="status"
+            android:id="@+id/tv_status"
+            android:visibility="invisible"
+            style="@style/muliBoldSmall"/>
+
     </LinearLayout>
 
 

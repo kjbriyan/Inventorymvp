@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ln_barang"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@color/colorAccent"
+   >
+
+    <ImageView
+        android:id="@+id/iv_barang"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_barang"
+        app:layout_constraintEnd_toEndOf="@+id/tv_status"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toEndOf="@+id/iv_barang"
+        app:layout_constraintTop_toTopOf="@+id/iv_barang"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_barang"
+            style="@style/muliBoldMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Barang" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_peminjam"
+            style="@style/muliBoldSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/nama_peminjam" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_stock"
+            style="@style/muliBoldSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Stock Nama Barang" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_in"
+            style="@style/fontSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="tanggal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_out"
+            style="@style/fontSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="tanggal" />
+
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_status"
+        style="@style/muliBoldSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

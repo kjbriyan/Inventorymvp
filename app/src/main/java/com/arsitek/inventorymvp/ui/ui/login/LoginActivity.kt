@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.arsitek.inventorymvp.R
 import com.arsitek.inventorymvp.model.DataItem
 import com.arsitek.inventorymvp.ui.HomeActivity
+import com.arsitek.inventorymvp.ui.ui.registrasi.RegisActivity
 import com.arsitek.inventorymvp.util.SharedPrefs
 import com.example.myinventory.util.Helper
 import com.google.android.material.textfield.TextInputEditText
@@ -37,6 +38,9 @@ class LoginActivity : AppCompatActivity(), LoginView {
         var pass = findViewById<TextInputEditText>(R.id.et_pw).text
         btn_login.setOnClickListener {
             presenter.login(uname.toString(), pass.toString())
+        }
+        tv_signup.setOnClickListener {
+            Helper().moveActivity(this,RegisActivity::class.java)
         }
     }
 

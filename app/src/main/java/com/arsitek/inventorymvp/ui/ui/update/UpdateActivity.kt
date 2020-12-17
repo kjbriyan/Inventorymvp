@@ -22,6 +22,10 @@ import com.arsitek.inventorymvp.R
 import com.arsitek.inventorymvp.model.ResponseStatus
 import com.example.myinventory.network.Initretrofit
 import com.example.myinventory.util.Helper
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.textfield.TextInputEditText
 import com.squareup.picasso.Picasso
 import es.dmoral.toasty.Toasty
@@ -36,6 +40,7 @@ class UpdateActivity : AppCompatActivity(), UpdateView {
     val REQUEST_CODE_GALLERY = 11
     var filegambar: File? = null
     var imgUri: Uri? = null
+    lateinit var mAdView: AdView
 
     val presenter = UpdatePresenter(this)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -249,5 +254,18 @@ class UpdateActivity : AppCompatActivity(), UpdateView {
         private const val PERMISSIONS_REQUEST_CODE = 0
         private const val FILE_PICKER_REQUEST_CODE = 1
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val adView = AdView(this)
+        adView.adSize = AdSize.BANNER
+        adView.adUnitId = "ca-app-pub-8610166076120392/2647186398"
+        MobileAds.initialize(this) {
+
+            mAdView = findViewById(R.id.ads_banner)
+            val adRequest = AdRequest.Builder().build()
+            mAdView.loadAd(adRequest)
+        }
     }
 }

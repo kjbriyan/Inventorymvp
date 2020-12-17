@@ -6,15 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.ui.home.HomeFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search"
         tools:itemCount="3"
         tools:listitem="@layout/list_barang" />
 
@@ -41,23 +40,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.914" />
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/ads_banner"
+    <EditText
+        android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
-        app:layout_constraintBottom_toTopOf="@+id/rv_home"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_weight="1"
+        android:background="@android:color/black"
+        android:fontFamily="@font/muli_bold"
+        android:hint="Search..."
+
+        android:imeOptions="actionSearch"
+        android:maxLines="1"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-    </com.google.android.gms.ads.AdView>
-
+        app:layout_constraintVertical_bias="0.39" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

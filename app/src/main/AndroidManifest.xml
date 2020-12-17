@@ -22,7 +22,7 @@
         <activity android:name=".ui.ui.detailtransaksi.TransaksidetailActivity" />
         <activity android:name=".ui.ui.additem.AddItemActivity" />
         <activity android:name=".ui.ui.update.UpdateActivity" />
-        <activity android:name=".ui.ui.borrow.BorrowFragment" />
+        <activity android:name=".ui.ui.borrow.BorrowActivity" />
         <activity
             android:name=".ui.HomeActivity"
             android:label="@string/title_activity_home"

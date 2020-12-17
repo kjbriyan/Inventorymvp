@@ -10,15 +10,19 @@ import com.arsitek.inventorymvp.R
 import com.arsitek.inventorymvp.model.ResponseStatus
 import com.arsitek.inventorymvp.util.SharedPrefs
 import com.example.myinventory.network.Initretrofit
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.pixplicity.easyprefs.library.Prefs
 import com.squareup.picasso.Picasso
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_borrow.*
 
 
-class BorrowFragment : AppCompatActivity(), BorrowView {
+class BorrowActivity : AppCompatActivity(), BorrowView {
     private val TAG = "Borrow"
-
+    lateinit var mAdView: AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,5 +78,17 @@ class BorrowFragment : AppCompatActivity(), BorrowView {
         Toasty.error(this, t.cause.toString(), Toast.LENGTH_SHORT).show()
     }
 
+    override fun onStart() {
+        super.onStart()
+        val adView = AdView(this)
+        adView.adSize = AdSize.BANNER
+        adView.adUnitId = "ca-app-pub-8610166076120392/2647186398"
+        MobileAds.initialize(this) {
+
+            mAdView = findViewById(R.id.ads_banner)
+            val adRequest = AdRequest.Builder().build()
+            mAdView.loadAd(adRequest)
+        }
+    }
 
 }

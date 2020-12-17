@@ -6,7 +6,8 @@
     android:orientation="horizontal"
     android:background="@color/colorAccent"
     android:id="@+id/ln_barang"
-    android:layout_margin="@dimen/_5sdp">
+    android:layout_margin="@dimen/_5sdp"
+    >
 
     <ImageView
         android:layout_width="@dimen/_80sdp"

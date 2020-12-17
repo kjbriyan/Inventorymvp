@@ -19,8 +19,9 @@ class HomePresenter(private val view: HomeView) {
                 call: Call<ResponseBarang>,
                 response: Response<ResponseBarang>
             ) {
-                view.onDataloaded(response.body()?.data ?: emptyList())
+                view.onDataloaded(response.body()!!.data)
                 view.onHideLoading()
+
             }
 
             override fun onFailure(call: Call<ResponseBarang>, t: Throwable) {
